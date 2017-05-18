@@ -4,6 +4,7 @@ int wateringPin = LED_BUILTIN;
 float humidityValue = -1;
 int threshold = 250;
 int delayMillis = 1000;
+boolean debugOutput = true; 
 
 void setup()
 {
@@ -12,14 +13,19 @@ void setup()
   digitalWrite(humidityPowerPin, LOW); 
   digitalWrite(wateringPin, LOW); 
   Serial.begin(9600);
-  Serial.println("Init");
+  if (debugOutput)
+    Serial.println("Init");
 }
 
 void loop()
 {
   humidityValue = messen();
-  Serial.print("Humidity: ");
-  Serial.println(humidityValue);
+  
+  if (debugOutput)
+  {
+    Serial.print("Humidity: ");
+    Serial.println(humidityValue);
+  }
   processValue(humidityValue);
   delay(delayMillis);
 }

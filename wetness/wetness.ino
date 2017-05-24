@@ -5,6 +5,7 @@ float humidityValue = -1;
 int threshold = 250;
 int delayMillis = 1000;
 boolean debugOutput = true;
+//testeintrag
  
 long measureDry = 2*60*1000; // in Millisekunden
 unsigned long counterDry = 0;
